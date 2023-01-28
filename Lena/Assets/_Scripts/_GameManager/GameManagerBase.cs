@@ -1,18 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
+using _Scripts._Helpers;
 using UnityEngine;
 
-public class GameManagerBase : MonoBehaviour
+namespace _Scripts._GameManager
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public abstract class GameManagerBase : Singleton<GameManagerBase>
     {
+        
+        /* Main menu 
+         *
+         * Load Different saves
+         *
+         * click play
+         *
+         * set current player ID 
+         *
+         * load new scene
+         *
+         * initialize managers in new scene
+         *
+         * load from save
+         *
+         * 
+         * 
+         */
+        
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
