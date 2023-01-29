@@ -1,12 +1,12 @@
 using _Scripts._Helpers;
-using UnityEngine;
 
-namespace _Scripts._GameManager
+namespace Core.Game_Manager
 {
 
     public abstract class GameManagerBase : Singleton<GameManagerBase>
     {
-        
+
+        public GameState CurrentState { get; }
         /* Main menu 
          *
          * Load Different saves
@@ -24,6 +24,11 @@ namespace _Scripts._GameManager
          * 
          * 
          */
+
+        protected virtual void SwitchState(GameState newState)
+        {
+            
+        }
         
         
     }
