@@ -4,23 +4,23 @@ using UnityEngine.InputSystem;
 
 namespace Core.Input_System
 {
-    public class PlayerInputHandler : MonoBehaviour
+    public class InputHandler : MonoBehaviour
     {
         public Vector2 MovementVector { get; private set; }
         public int SprintMultiplier { get; private set; }
         
-        private PlayerInputActions _playerInputActions; 
+        private GameInputActions _gameInputActions; 
         private void Awake()
         {
-            _playerInputActions = new PlayerInputActions();
-            _playerInputActions.Player.Enable();
-            _playerInputActions.Player.Dash.performed += OnDashPerformed;
-            _playerInputActions.Player.Sprint.started += OnSprintStarted;
+            _gameInputActions = new GameInputActions();
+            _gameInputActions.Gameplay.Enable();
+            _gameInputActions.Gameplay.Dash.performed += OnDashPerformed;
+            _gameInputActions.Gameplay.Sprint.started += OnSprintStarted;
         }
 
         private void Update()
         {
-            MovementVector = _playerInputActions.Player.Movement.ReadValue<Vector2>();
+            MovementVector = _gameInputActions.Gameplay.Movement.ReadValue<Vector2>();
         }
 
         #region EventListeners
