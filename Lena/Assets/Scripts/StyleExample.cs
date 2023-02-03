@@ -46,7 +46,7 @@ using UnityEngine;
 // - Pascal case, without special symbols or underscores.
 // - Add using line at the top to avoid typing namespace repeatedly.
 // - Create sub-namespaces with the dot (.) operator, e.g. MyApplication.GameFlow, MyApplication.AI, etc.
-namespace _Scripts
+namespace _Scripts.Style
 {
 
     // ENUMS:

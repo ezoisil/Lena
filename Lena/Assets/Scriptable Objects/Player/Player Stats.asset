@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0191ed650efb5b14f858274fdb147011, type: 3}
+  m_Name: Player Stats
+  m_EditorClassIdentifier: 
+  MovementSpeed: {fileID: 11400000, guid: 0927b91bab9bb374e903c62e69d324a3, type: 2}
+  BaseHealth: {fileID: 11400000, guid: d6442aa5c9cd891428fb08eb1d661eac, type: 2}
+  DashSpeed: {fileID: 0}

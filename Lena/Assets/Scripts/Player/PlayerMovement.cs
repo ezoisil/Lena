@@ -1,11 +1,11 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Core.EventChannels;
+using Player;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private PlayerStats _playerStats;
     [SerializeField] private InputReaderSO _inputReader;
     [SerializeField] private Rigidbody _rigidbody;
 
@@ -96,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
         }
         _targetSpeed = Mathf.Lerp(_previousSpeed, _targetSpeed, Time.deltaTime * 4f);
 
-        MovementVector = _adjustedMovement.normalized * _targetSpeed;
+        MovementVector = _adjustedMovement.normalized * (_targetSpeed * _playerStats.MovementSpeed.Value);
 
         _previousSpeed = _targetSpeed;
     }
