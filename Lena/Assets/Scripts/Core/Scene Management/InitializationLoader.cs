@@ -1,4 +1,4 @@
-using System;
+using Core.AddressableExtensions;
 using Core.EventChannels;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -11,10 +11,10 @@ namespace Core.Scene_Management
 
     public class InitializationLoader : MonoBehaviour
     {
-        [SerializeField] private GameSceneSO _managersScene;
-        [SerializeField] private GameSceneSO _menuScene;
+        [SerializeField] private GameScene _managersScene;
+        [SerializeField] private GameScene _menuScene;
 
-        [SerializeField] private AssetReference _menuLoadEventChannel;
+        [SerializeField] private AssetReferenceEventChannel _mainMenuLoadEventChannel;
 
         private void Start()
         {
@@ -23,10 +23,10 @@ namespace Core.Scene_Management
 
         private void LoadEventChannel(AsyncOperationHandle<SceneInstance> obj)
         {
-            _menuLoadEventChannel.LoadAssetAsync<LoadEventChannelSO>().Completed += LoadMainMenu;
+            _mainMenuLoadEventChannel.LoadAssetAsync<LoadEventChannel>().Completed += LoadMainMenu;
         }
 
-        private void LoadMainMenu(AsyncOperationHandle<LoadEventChannelSO> obj)
+        private void LoadMainMenu(AsyncOperationHandle<LoadEventChannel> obj)
         {
             obj.Result.RaiseEvent(_menuScene, true);
 

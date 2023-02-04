@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -7,7 +6,7 @@ namespace Core.EventChannels
 {
 
     [CreateAssetMenu(menuName = "Input /Input Reader")]
-    public class InputReaderSO : ScriptableObject, GameInputActions.IGameplayActions, GameInputActions.IUIActions
+    public class InputReader : ScriptableObject, GameInputActions.IGameplayActions, GameInputActions.IUIActions
     {
         // Game Inputs
         public UnityAction<Vector2> MoveEvent = delegate { };

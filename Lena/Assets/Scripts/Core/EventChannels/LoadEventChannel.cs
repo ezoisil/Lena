@@ -5,11 +5,11 @@ using UnityEngine.Events;
 namespace Core.EventChannels
 {
 
-    public class LoadEventChannelSO : MonoBehaviour
+    public class LoadEventChannel : EventChannelBase
     {
-        public UnityAction<GameSceneSO, bool, bool> OnLoadingRequested;
+        public UnityAction<GameScene, bool, bool> OnLoadingRequested;
 
-        public void RaiseEvent(GameSceneSO locationToLoad, bool showLoadingScreen = false, bool fadeScreen = false)
+        public void RaiseEvent(GameScene locationToLoad, bool showLoadingScreen = false, bool fadeScreen = false)
         {
             if (OnLoadingRequested != null)
             {

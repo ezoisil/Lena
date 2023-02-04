@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private PlayerStats _playerStats;
-    [SerializeField] private InputReaderSO _inputReader;
+    [SerializeField] private InputReader _inputReader;
     [SerializeField] private Rigidbody _rigidbody;
 
     [NonSerialized] public Vector3 MovementVector;

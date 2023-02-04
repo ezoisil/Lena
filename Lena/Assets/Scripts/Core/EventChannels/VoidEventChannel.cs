@@ -8,7 +8,7 @@ namespace Core.EventChannels
     /// </summary>
     
     [CreateAssetMenu(menuName = "Events /Void Event Channel")]
-    public class VoidEventChannelSO : ScriptableObject
+    public class VoidEventChannel : EventChannelBase
     {
         public UnityAction OnEventRaised;
 
