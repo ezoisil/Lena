@@ -1,5 +1,5 @@
+using Core.Addressable_Extensions;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 namespace Core.Scene_Management
 {
@@ -7,7 +7,7 @@ namespace Core.Scene_Management
     public class GameScene : ScriptableObject
     {
         public GameSceneType SceneType;
-        public AssetReference SceneReference;
+        public AssetReferenceScene SceneReference;
     }
 
 }

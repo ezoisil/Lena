@@ -7,13 +7,13 @@ namespace Core.EventChannels
 
     public class LoadEventChannel : EventChannelBase
     {
-        public UnityAction<GameScene, bool, bool> OnLoadingRequested;
+        public UnityAction<SceneLoadingSettings> OnLoadingRequested;
 
-        public void RaiseEvent(GameScene locationToLoad, bool showLoadingScreen = false, bool fadeScreen = false)
+        public void RaiseEvent(SceneLoadingSettings sceneLoadingSettings)
         {
             if (OnLoadingRequested != null)
             {
-                OnLoadingRequested.Invoke(locationToLoad, showLoadingScreen, fadeScreen);
+                OnLoadingRequested.Invoke(sceneLoadingSettings);
             }
             else
             {

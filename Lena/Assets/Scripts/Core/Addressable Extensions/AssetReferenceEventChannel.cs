@@ -1,7 +1,7 @@
 using Core.EventChannels;
 using UnityEngine.AddressableAssets;
 
-namespace Core.AddressableExtensions
+namespace Core.Addressable_Extensions
 {
     [System.Serializable]
     public class AssetReferenceEventChannel : AssetReferenceT<EventChannelBase>
