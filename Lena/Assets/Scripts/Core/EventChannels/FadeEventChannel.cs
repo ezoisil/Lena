@@ -3,6 +3,8 @@ using UnityEngine.Events;
 
 namespace Core.EventChannels
 {
+    [CreateAssetMenu(menuName = "Scene Management/Fade Event Channel")]
+
 
     public class FadeEventChannel : EventChannelBase
     {

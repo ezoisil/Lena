@@ -19,14 +19,12 @@ namespace Core.Scene_Management
 
         [Header("Listening to")]
         [SerializeField] private LoadEventChannel _loadLocation;
-
         [SerializeField] private LoadEventChannel _loadMainMenu;
         [SerializeField] private LoadEventChannel _coldStartupLocation = default;
 
 
         [Header("Broadcasting on")]
         [SerializeField] private BoolEventChannel _toggleLoadingScreen;
-
         [SerializeField] private VoidEventChannel _onSceneReady;
         [SerializeField] private FadeEventChannel _fadeRequestChannel;
 
@@ -102,6 +100,7 @@ namespace Core.Scene_Management
 
         private bool IsGameManagerLoaded()
         {
+            // TODO: check this
             return _gameplayManagerSceneInstance.Scene == null
                    || !_gameplayManagerSceneInstance.Scene.isLoaded;
         }

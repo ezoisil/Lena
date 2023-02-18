@@ -3,6 +3,7 @@ using UnityEngine.Events;
 
 namespace Core.EventChannels
 {
+    [CreateAssetMenu(menuName = "Events /Bool Event Channel")]
 
     public class BoolEventChannel : EventChannelBase
     {

@@ -5,6 +5,8 @@ using UnityEngine.Events;
 namespace Core.EventChannels
 {
 
+    [CreateAssetMenu(menuName = "Scene Management/Load Event Channel")]
+
     public class LoadEventChannel : EventChannelBase
     {
         public UnityAction<SceneLoadingSettings> OnLoadingRequested;
