@@ -8,21 +8,21 @@ namespace Core.EventChannels
 
     public class FadeEventChannel : EventChannelBase
     {
-        public UnityAction<bool, float, Color> OnEventRaised;
+        public UnityAction<bool, float> OnEventRaised;
 
         public void FadeIn(float duration)
         {
-            Fade(true, duration, Color.clear);
+            Fade(true, duration);
         }
 
         public void FadeOut(float duration)
         {
-            Fade(false, duration, Color.black);
+            Fade(false, duration);
         }
 
-        private void Fade(bool fadeIn, float duration, Color color)
+        private void Fade(bool fadeIn, float duration)
         {
-            OnEventRaised?.Invoke(fadeIn,duration,color);
+            OnEventRaised?.Invoke(fadeIn,duration);
         }
     }
 

@@ -1,7 +1,7 @@
-using System;
 using Core.EventChannels;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 namespace UI_Manager
 {
@@ -15,9 +15,9 @@ namespace UI_Manager
             _fadeEventChannel.OnEventRaised += InitiateFade;
         }
 
-        private void InitiateFade(bool fadeIn, float duration, Color color)
+        private void InitiateFade(bool fadeIn, float duration)
         {
-            
+            _fadeImage.material.DOFade(fadeIn ? 1 : 0, duration);
         }
     }
 
