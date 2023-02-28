@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Core.EventChannels;
 using UnityEngine;
@@ -19,12 +20,14 @@ namespace Core.Scene_Management
 
         [Header("Listening to")]
         [SerializeField] private LoadEventChannel _loadLocation;
+
         [SerializeField] private LoadEventChannel _loadMainMenu;
         [SerializeField] private LoadEventChannel _coldStartupLocation = default;
 
 
         [Header("Broadcasting on")]
         [SerializeField] private BoolEventChannel _toggleLoadingScreen;
+
         [SerializeField] private VoidEventChannel _onSceneReady;
         [SerializeField] private FadeEventChannel _fadeRequestChannel;
 
@@ -34,7 +37,7 @@ namespace Core.Scene_Management
         private GameScene _currentlyLoadedScene;
         private SceneLoadingSettings _sceneLoadingSettings;
 
-        private SceneInstance _gameplayManagerSceneInstance;
+        private SceneInstance _gameplayManagerSceneInstance = new SceneInstance();
         private bool _isLoading = false;
 
         private void OnEnable()
@@ -44,6 +47,15 @@ namespace Core.Scene_Management
 #if UNITY_EDITOR
             _coldStartupLocation.OnLoadingRequested += LocationColdStartup;
 #endif
+        }
+
+        private void OnDisable()
+        {
+            _loadLocation.OnLoadingRequested -= TryChangeScene;
+            _loadMainMenu.OnLoadingRequested -= TryChangeScene;
+#if UNITY_EDITOR
+            _coldStartupLocation.OnLoadingRequested -= LocationColdStartup;
+#endif       
         }
 
 #if UNITY_EDITOR
@@ -77,7 +89,10 @@ namespace Core.Scene_Management
                 case GameSceneType.Menu:
 
                     if (IsGameManagerLoaded())
+                    {
+                        Debug.Log(_gameplayManagerLoadingOperationHandle);
                         Addressables.UnloadSceneAsync(_gameplayManagerLoadingOperationHandle, true);
+                    }
                     StartCoroutine(ChangeSceneCoroutine());
                     break;
 
@@ -101,8 +116,8 @@ namespace Core.Scene_Management
         private bool IsGameManagerLoaded()
         {
             // TODO: check this
-            return _gameplayManagerSceneInstance.Scene == null
-                   || !_gameplayManagerSceneInstance.Scene.isLoaded;
+            return _gameplayManagerSceneInstance.Scene != null
+                   && _gameplayManagerSceneInstance.Scene.isLoaded;
         }
 
         private bool CanChangeScene()

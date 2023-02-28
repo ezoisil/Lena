@@ -15,7 +15,7 @@ namespace Core.EventChannels
         {
             if (OnLoadingRequested != null)
             {
-                OnLoadingRequested.Invoke(sceneLoadingSettings);
+                OnLoadingRequested?.Invoke(sceneLoadingSettings);
             }
             else
             {
