@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/MainMenuLabels.uss?fileID=7433441132597879392&amp;guid=43e778dac4a00e24db7ef78e40cac88c&amp;type=3#MainMenuLabels" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/MainMenuButtons.uss?fileID=7433441132597879392&amp;guid=6206dcc913fb88a458636afc8ac0fe1e&amp;type=3#MainMenuButtons" />
+    <ui:VisualElement name="Background" picking-mode="Ignore" style="flex-direction: row; flex-grow: 1; background-color: rgb(37, 30, 58);">
+        <ui:VisualElement name="SideBar" picking-mode="Ignore" style="width: 30%; background-color: rgba(75, 24, 38, 0.82); justify-content: center;">
+            <ui:Label text="LENA" display-tooltip-when-elided="true" name="Title" picking-mode="Ignore" class="label-main-menu" />
+            <ui:Button text="Start" display-tooltip-when-elided="true" name="Start" class="button-main-menu" />
+            <ui:Button text="Settings" display-tooltip-when-elided="true" name="Settings" class="button-main-menu" />
+            <ui:Button text="Quit" display-tooltip-when-elided="true" name="Quit" class="button-main-menu" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
