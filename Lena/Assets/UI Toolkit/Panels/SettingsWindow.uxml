@@ -1,6 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="SettingsWindowBackground" picking-mode="Ignore" style="flex-grow: 1; background-color: rgb(152, 156, 159); align-items: stretch; justify-content: center;">
-        <ui:Label text="Settings" display-tooltip-when-elided="true" name="SettingsTitle" picking-mode="Ignore" style="justify-content: flex-start; margin-left: 16px; margin-right: 16px; margin-top: 16px; margin-bottom: 16px; -unity-text-align: upper-center; font-size: 37px; -unity-font-style: bold;" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/MainMenuBackgrounds.uss?fileID=7433441132597879392&amp;guid=831e55a128e27054082dca8a9ec551ad&amp;type=3#MainMenuBackgrounds" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/Toggles.uss?fileID=7433441132597879392&amp;guid=d03f6c0af56b63e42b5f1139e6bfe8d6&amp;type=3#Toggles" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/Drowdowns.uss?fileID=7433441132597879392&amp;guid=a457fee92c0759441991049f7f353cf4&amp;type=3#Drowdowns" />
+    <ui:VisualElement name="SettingsWindowBackground" picking-mode="Ignore" style="flex-grow: 1; background-color: rgb(37, 30, 58); align-items: stretch; justify-content: center;">
+        <ui:Label text="Settings" display-tooltip-when-elided="true" name="SettingsTitle" picking-mode="Ignore" class="label-main-menu" style="justify-content: flex-start; margin-left: 16px; margin-right: 16px; margin-top: 16px; margin-bottom: 16px; -unity-text-align: upper-center; font-size: 67px; -unity-font-style: bold;" />
         <ui:Button text="Back" display-tooltip-when-elided="true" name="BackButton" class="button-main-menu" />
         <ui:Button text="Button" display-tooltip-when-elided="true" class="button-main-menu" />
         <ui:Button text="Button" display-tooltip-when-elided="true" class="button-main-menu" />
