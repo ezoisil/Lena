@@ -87,7 +87,6 @@ namespace Core.Scene_Management
             switch (sceneLoadingSettings.SceneToLoad.SceneType)
             {
                 case GameSceneType.Menu:
-
                     // if (_gameplayManagerSceneInstance.Scene != null
                     //     && _gameplayManagerSceneInstance.Scene.isLoaded)
                     // {
@@ -164,7 +163,7 @@ namespace Core.Scene_Management
 
         #region SceneLoader Helpers
 
-        
+        // TODO: Implement this if pls.
         // private bool IsGameManagerLoaded()
         // {
         //     // TODO: check this

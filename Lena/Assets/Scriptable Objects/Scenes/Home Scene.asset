@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 280b66852642e6242b94f13f97651825, type: 3}
-  m_Name: Gameplay Scene
+  m_Name: Home Scene
   m_EditorClassIdentifier: 
-  SceneType: 4
+  SceneType: 0
   SceneReference:
     m_AssetGUID: 3d65b7f13269ca945a8813b691090f37
     m_SubObjectName: 
