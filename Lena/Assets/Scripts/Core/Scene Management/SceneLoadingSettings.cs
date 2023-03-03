@@ -8,15 +8,13 @@ namespace Core.Scene_Management
         public GameScene SceneToLoad { get; private set; }
         public bool ShowLoadingScreen { get; private set; }
         public bool FadeScreen { get; private set; }
-        public GameSceneType GameSceneType { get; private set; }
 
         public SceneLoadingSettings(GameScene sceneToLoad, bool showLoadingScreen, 
-            bool fadeScreen, GameSceneType gameSceneType)
+            bool fadeScreen)
         {
             SceneToLoad = sceneToLoad;
             ShowLoadingScreen = showLoadingScreen;
             FadeScreen = fadeScreen;
-            GameSceneType = gameSceneType;
         }
     }
 

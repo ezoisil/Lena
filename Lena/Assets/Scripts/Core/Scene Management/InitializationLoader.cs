@@ -20,7 +20,7 @@ namespace Core.Scene_Management
         private void Start()
         {
             _sceneLoadingSettings =
-                new SceneLoadingSettings(_menuScene, true, true, _menuScene.SceneType);
+                new SceneLoadingSettings(_menuScene, true, true);
 
             _managersScene.SceneReference.LoadSceneAsync(LoadSceneMode.Additive, true).Completed += LoadMainMenuEventChannel;
         }
@@ -33,7 +33,6 @@ namespace Core.Scene_Management
         private void LoadMainMenu(AsyncOperationHandle<LoadEventChannel> obj)
         {
             obj.Result.RaiseEvent(_sceneLoadingSettings);
-
             SceneManager.UnloadSceneAsync(0);
         }
     }

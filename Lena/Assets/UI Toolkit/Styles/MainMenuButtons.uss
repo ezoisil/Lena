@@ -1,40 +1,65 @@
 .button-main-menu {
     font-size: 32px;
     -unity-font-style: bold;
-    color: rgba(68, 14, 84, 255);
-    background-color: rgba(228, 206, 233, 255);
-    border-left-width: 6px;
-    border-right-width: 6px;
-    border-top-width: 6px;
-    border-bottom-width: 6px;
-    border-left-color: rgba(228, 206, 233, 255);
-    border-right-color: rgba(228, 206, 233, 255);
-    border-top-color: rgba(228, 206, 233, 255);
-    border-bottom-color: rgba(228, 206, 233, 255);
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
+    color: rgb(68, 14, 84);
+    background-color: rgb(190, 255, 226);
+    border-left-width: 11px;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 11px;
+    border-left-color: rgb(203, 240, 241);
+    border-right-color: rgb(228, 206, 233);
+    border-top-color: rgb(228, 206, 233);
+    border-bottom-color: rgb(241, 182, 255);
+    border-top-left-radius: 13px;
+    border-bottom-left-radius: 13px;
+    border-top-right-radius: 13px;
+    border-bottom-right-radius: 13px;
     margin-left: 48px;
     margin-right: 49px;
     margin-top: 10px;
     margin-bottom: 10px;
+    cursor: ınitial;
+    transition-duration: 0.1s;
 }
 
 .button-main-menu:hover {
-    background-color: rgb(37, 30, 58);
-    color: rgb(228, 206, 233);
-    border-left-color: rgba(192, 155, 169, 255);
-    border-right-color: rgba(192, 155, 169, 255);
-    border-top-color: rgba(192, 155, 169, 255);
-    border-bottom-color: rgba(192, 155, 169, 255);
+    background-color: rgb(224, 212, 236);
+    color: rgb(68, 14, 84);
+    border-left-color: rgb(203, 240, 241);
+    border-right-color: rgb(228, 206, 233);
+    border-top-color: rgb(228, 206, 233);
+    border-bottom-color: rgb(241, 182, 255);
+    border-top-left-radius: 13px;
+    border-bottom-left-radius: 13px;
+    border-top-right-radius: 13px;
+    border-bottom-right-radius: 13px;
+    border-left-width: 11px;
+    border-bottom-width: 11px;
+    transition-duration: 0.1s, 0.1s;
+    transition-timing-function: ease-ın, ease-ın-out-sine;
+    transition-property: all, margin;
+    font-size: 42px;
 }
 
 .button-main-menu:active {
-    border-left-color: rgba(171, 123, 141, 255);
-    border-right-color: rgba(171, 123, 141, 255);
-    border-top-color: rgba(171, 123, 141, 255);
-    border-bottom-color: rgba(171, 123, 141, 255);
-    background-color: rgb(23, 17, 38);
-    color: rgb(228, 206, 233);
+    background-color: rgb(206, 193, 219);
+    color: rgb(68, 14, 84);
+    border-left-color: rgb(203, 240, 241);
+    border-right-color: rgb(228, 206, 233);
+    border-top-color: rgb(228, 206, 233);
+    border-bottom-color: rgb(241, 182, 255);
+    border-top-left-radius: 13px;
+    border-bottom-left-radius: 13px;
+    border-top-right-radius: 13px;
+    border-bottom-right-radius: 13px;
+    border-left-width: 11px;
+    border-bottom-width: 11px;
+    transition-duration: 0.1s, 0.1s;
+    transition-timing-function: ease-ın, ease-ın-out-sine;
+    transition-property: all, margin;
+    font-size: 42px;
+}
+
+.button-main-menu:focus {
 }

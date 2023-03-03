@@ -1,9 +1,12 @@
 .label-main-menu {
     font-size: 70px;
     background-color: rgba(0, 0, 0, 0);
-    color: rgba(201, 211, 255, 255);
+    color: rgb(158, 235, 174);
     margin-left: 42px;
     margin-right: 42px;
     margin-top: 42px;
     margin-bottom: 42px;
+    -unity-font: none;
+    -unity-font-style: bold;
+    letter-spacing: 13px;
 }

@@ -31,13 +31,13 @@ namespace Core.Scene_Management
         [SerializeField] private VoidEventChannel _onSceneReady;
         [SerializeField] private FadeEventChannel _fadeRequestChannel;
 
-        private AsyncOperationHandle<SceneInstance> _loadingOperationHandle;
-        private AsyncOperationHandle<SceneInstance> _gameplayManagerLoadingOperationHandle;
+        private AsyncOperationHandle<SceneInstance> _loadingOperationHandle = new AsyncOperationHandle<SceneInstance>();
+        private AsyncOperationHandle<SceneInstance> _gameplayManagerLoadingOperationHandle = new AsyncOperationHandle<SceneInstance>();
 
         private GameScene _currentlyLoadedScene;
         private SceneLoadingSettings _sceneLoadingSettings;
 
-        private SceneInstance _gameplayManagerSceneInstance = new SceneInstance();
+        public SceneInstance _gameplayManagerSceneInstance = new SceneInstance();
         private bool _isLoading = false;
 
         private void OnEnable()
@@ -84,47 +84,35 @@ namespace Core.Scene_Management
             _isLoading = true;
             _sceneLoadingSettings = sceneLoadingSettings;
 
-            switch (sceneLoadingSettings.GameSceneType)
+            switch (sceneLoadingSettings.SceneToLoad.SceneType)
             {
                 case GameSceneType.Menu:
 
-                    if (IsGameManagerLoaded())
-                    {
-                        Debug.Log(_gameplayManagerLoadingOperationHandle);
-                        Addressables.UnloadSceneAsync(_gameplayManagerLoadingOperationHandle, true);
-                    }
+                    // if (_gameplayManagerSceneInstance.Scene != null
+                    //     && _gameplayManagerSceneInstance.Scene.isLoaded)
+                    // {
+                    //     _gameplayManagerSceneInstance = Addressables.UnloadSceneAsync(_gameplayManagerLoadingOperationHandle, true).Result;
+                    // }
                     StartCoroutine(ChangeSceneCoroutine());
                     break;
 
                 case GameSceneType.Location:
-
-                    if (!IsGameManagerLoaded())
+                    Debug.Log(_gameplayManagerSceneInstance.Scene == null
+                              || !_gameplayManagerSceneInstance.Scene.isLoaded);
+                    // if (_gameplayManagerSceneInstance.Scene == null
+                    //     || !_gameplayManagerSceneInstance.Scene.isLoaded)
+                    // {
+                    //     _gameplayManagerLoadingOperationHandle =
+                    //         _gameplayScene.SceneReference.LoadSceneAsync(LoadSceneMode.Additive, true);
+                    //     _gameplayManagerLoadingOperationHandle.Completed += OnGameplayManagersLoaded;
+                    // }
+                    // else
                     {
-                        _gameplayManagerLoadingOperationHandle =
-                            _gameplayScene.SceneReference.LoadSceneAsync(LoadSceneMode.Additive, true);
-                        _gameplayManagerLoadingOperationHandle.Completed += OnGameplayManagersLoaded;
-                    }
-                    else
-                    {
+                        Debug.Log("starting scene change for location");
                         StartCoroutine(ChangeSceneCoroutine());
                     }
                     break;
             }
-        }
-
-
-        private bool IsGameManagerLoaded()
-        {
-            // TODO: check this
-            return _gameplayManagerSceneInstance.Scene != null
-                   && _gameplayManagerSceneInstance.Scene.isLoaded;
-        }
-
-        private bool CanChangeScene()
-        {
-            if (_isLoading) return false;
-
-            return true;
         }
 
         private IEnumerator ChangeSceneCoroutine()
@@ -164,7 +152,7 @@ namespace Core.Scene_Management
             {
                 _toggleLoadingScreen.RaiseEvent(true);
             }
-
+      
             _loadingOperationHandle = _sceneLoadingSettings.SceneToLoad.SceneReference.LoadSceneAsync(LoadSceneMode.Additive, true, 0);
             _loadingOperationHandle.Completed += OnNewSceneLoaded;
         }
@@ -173,6 +161,24 @@ namespace Core.Scene_Management
         {
             _onSceneReady.RaiseEvent(); //Spawn system will spawn the PigChef in a gameplay scene
         }
+
+        #region SceneLoader Helpers
+
+        
+        // private bool IsGameManagerLoaded()
+        // {
+        //     // TODO: check this
+        //     return false;
+        // }
+
+        private bool CanChangeScene()
+        {
+            if (_isLoading) return false;
+
+            return true;
+        }
+
+        #endregion
 
 
         #region Event Listeners
@@ -186,6 +192,8 @@ namespace Core.Scene_Management
 
         private void OnNewSceneLoaded(AsyncOperationHandle<SceneInstance> obj)
         {
+            _loadingOperationHandle.Completed -= OnNewSceneLoaded;
+
             //Save loaded scenes (to be unloaded at next load request)
             _currentlyLoadedScene = _sceneLoadingSettings.SceneToLoad;
 
@@ -195,7 +203,7 @@ namespace Core.Scene_Management
 
             _isLoading = false;
 
-            if (_sceneLoadingSettings.SceneToLoad)
+            if (_sceneLoadingSettings.ShowLoadingScreen)
                 _toggleLoadingScreen.RaiseEvent(false);
 
             _fadeRequestChannel.FadeIn(_fadeDuration);

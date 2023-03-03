@@ -394,3 +394,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed04aed1c9eda684685e1a3dac3d556c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _locationLoadEventChannel: {fileID: 11400000, guid: 7172250d0f57da84d8156b0b2d67561b,
+    type: 2}
+  _sceneToLoad: {fileID: 11400000, guid: ad8c07d19bab98f4597cd1379ac76085, type: 2}
