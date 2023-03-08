@@ -46,7 +46,6 @@ namespace UI_Manager
 
         private void OnStartButtonClicked()
         {
-            Debug.Log("loadscene");
             SceneLoadingSettings sceneLoadingSettings = new SceneLoadingSettings(_sceneToLoad, true, true);
             _locationLoadEventChannel.RaiseEvent(sceneLoadingSettings);
         }

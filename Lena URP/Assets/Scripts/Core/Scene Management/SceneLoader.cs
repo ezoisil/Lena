@@ -96,8 +96,7 @@ namespace Core.Scene_Management
                     break;
 
                 case GameSceneType.Location:
-                    Debug.Log(_gameplayManagerSceneInstance.Scene == null
-                              || !_gameplayManagerSceneInstance.Scene.isLoaded);
+                  
                     // if (_gameplayManagerSceneInstance.Scene == null
                     //     || !_gameplayManagerSceneInstance.Scene.isLoaded)
                     // {
@@ -107,7 +106,6 @@ namespace Core.Scene_Management
                     // }
                     // else
                     {
-                        Debug.Log("starting scene change for location");
                         StartCoroutine(ChangeSceneCoroutine());
                     }
                     break;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _Scripts._ScriptableVariables
+namespace Scriptable_Variables
 {
 
     [CreateAssetMenu(menuName = "Float Variable")]

@@ -1,4 +1,4 @@
-using _Scripts._ScriptableVariables;
+using Scriptable_Variables;
 using UnityEngine;
 
 namespace Player
