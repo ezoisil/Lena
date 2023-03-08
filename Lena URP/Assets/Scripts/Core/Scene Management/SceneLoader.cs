@@ -115,7 +115,7 @@ namespace Core.Scene_Management
         private IEnumerator ChangeSceneCoroutine()
         {
             _inputReader.DisableAllInput();
-            _fadeRequestChannel.FadeOut(_fadeDuration);
+            _fadeRequestChannel.FadeIn(_fadeDuration);
 
             yield return new WaitForSeconds(_fadeDuration);
 
@@ -203,7 +203,7 @@ namespace Core.Scene_Management
             if (_sceneLoadingSettings.ShowLoadingScreen)
                 _toggleLoadingScreen.RaiseEvent(false);
 
-            _fadeRequestChannel.FadeIn(_fadeDuration);
+            _fadeRequestChannel.FadeOut(_fadeDuration);
 
             SceneReady();
         }
