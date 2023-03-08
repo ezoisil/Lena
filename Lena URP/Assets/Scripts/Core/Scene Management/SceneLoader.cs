@@ -28,7 +28,7 @@ namespace Core.Scene_Management
         [Header("Broadcasting on")]
         [SerializeField] private BoolEventChannel _toggleLoadingScreen;
 
-        [SerializeField] private VoidEventChannel _onSceneReady;
+        [SerializeField] private GameSceneEventChannel _onSceneReady;
         [SerializeField] private FadeEventChannel _fadeRequestChannel;
 
         private AsyncOperationHandle<SceneInstance> _loadingOperationHandle = new AsyncOperationHandle<SceneInstance>();
@@ -58,6 +58,11 @@ namespace Core.Scene_Management
 #endif       
         }
 
+        public GameScene GetCurrentlyLoadedScene()
+        {
+            return _currentlyLoadedScene;
+        }
+        
 #if UNITY_EDITOR
         /// <summary>
         /// This special loading function is only used in the editor, when the developer presses Play in a Location scene, without passing by Initialisation.
@@ -156,7 +161,7 @@ namespace Core.Scene_Management
 
         private void SceneReady()
         {
-            _onSceneReady.RaiseEvent(); //Spawn system will spawn the PigChef in a gameplay scene
+            _onSceneReady.RaiseEvent(_currentlyLoadedScene); //Spawn system will spawn the PigChef in a gameplay scene
         }
 
         #region SceneLoader Helpers

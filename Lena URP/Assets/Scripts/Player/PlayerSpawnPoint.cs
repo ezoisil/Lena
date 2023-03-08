@@ -22,12 +22,12 @@ namespace Player
             Gizmos.DrawSphere(transform.position,.3f);
         }
 
-        public void Save()
+        public object CaptureState()
         {
             throw new NotImplementedException();
         }
 
-        public void Load()
+        public void RestoreState(object o)
         {
             throw new NotImplementedException();
         }
