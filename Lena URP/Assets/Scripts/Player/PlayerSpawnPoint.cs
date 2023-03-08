@@ -8,12 +8,18 @@ namespace Player
 
     public class PlayerSpawnPoint : MonoBehaviour, ISaveable
     {
-        [SerializeField]
-        private Vector3Variable _defaultSpawnPoint;
+        [SerializeField] private Vector3Variable _defaultSpawnPoint;
+        [SerializeField] private GameObject _playerPrefab;
+        [SerializeField] private Transform _playerParent;
 
         private void Awake()
         {
             _defaultSpawnPoint.Value = transform.position;
+        }
+
+        private void Start()
+        {
+            GameObject player = Instantiate(_playerPrefab,transform.position,transform.rotation,_playerParent);
         }
 
         private void OnDrawGizmos()
