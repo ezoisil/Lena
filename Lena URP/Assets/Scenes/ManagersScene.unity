@@ -248,11 +248,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 378358047}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 697eb3761a2c76d4b97afc9b75053628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sceneLoader: {fileID: 532870478}
+  _onSceneReady: {fileID: 11400000, guid: 4bbfd596518b08041845f877e5a678dc, type: 2}
+  _onLoad: {fileID: 11400000, guid: f6c6b9de258f9e540bcaf301126ea542, type: 2}
 --- !u!4 &378358049
 Transform:
   m_ObjectHideFlags: 0
@@ -352,7 +355,7 @@ MonoBehaviour:
     type: 2}
   _toggleLoadingScreen: {fileID: 11400000, guid: 2b3d654434218124eb813f72ac1e806d,
     type: 2}
-  _onSceneReady: {fileID: 11400000, guid: 2482031842a54d0429a383f0a4588197, type: 2}
+  _onSceneReady: {fileID: 11400000, guid: 4bbfd596518b08041845f877e5a678dc, type: 2}
   _fadeRequestChannel: {fileID: 11400000, guid: 5746eb7e4cb99e8448ed4bdc507b9ec7,
     type: 2}
 --- !u!4 &532870479

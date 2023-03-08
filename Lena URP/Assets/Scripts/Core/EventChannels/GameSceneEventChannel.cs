@@ -1,17 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using Core.Scene_Management;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(menuName = "Events /Game Scene Event Channel")]
-
-public class GameSceneEventChannel : MonoBehaviour
+namespace Core.EventChannels
 {
-    public UnityAction<GameScene> OnEventRaised;
 
-    public void RaiseEvent(GameScene value)
+    [CreateAssetMenu(menuName = "Events /Game Scene Event Channel")]
+
+    public class GameSceneEventChannel : ScriptableObject
     {
-        OnEventRaised?.Invoke(value);
+        public UnityAction<GameScene> OnEventRaised;
+
+        public void RaiseEvent(GameScene value)
+        {
+            OnEventRaised?.Invoke(value);
+        }
     }
+
 }
