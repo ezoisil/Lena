@@ -1,8 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using Scriptable_Variables;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+namespace Player
 {
-    
+
+    public class PlayerController : MonoBehaviour
+    {
+        [SerializeField] private Vector3Variable _playerPosition;
+
+        private void FixedUpdate()
+        {
+            _playerPosition.Value = transform.position;
+        }
+    }
+
 }

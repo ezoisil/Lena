@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnEnable()
     {
         _inputReader.MoveEvent += OnMove;
+        _inputReader.MoveCancelledEvent += OnMoveEnded;
         _inputReader.DashEvent += OnDash;
         _inputReader.EnableGameInput();
     }
@@ -51,6 +52,8 @@ public class PlayerMovement : MonoBehaviour
     private void OnDisable()
     {
         _inputReader.MoveEvent -= OnMove;
+        _inputReader.DashEvent -= OnDash;
+
     }
 
     #region Event Listeners
@@ -61,6 +64,13 @@ public class PlayerMovement : MonoBehaviour
         _movementInput = dislocation;
         _rigidbody.velocity = dislocation;
     }
+    
+    
+    private void OnMoveEnded()
+    {
+        _rigidbody.velocity = Vector3.zero;
+    }
+
 
     private void OnDash()
     {
