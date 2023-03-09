@@ -9,7 +9,7 @@ namespace Player
     {
         [SerializeField] private Vector3Variable _playerPosition;
 
-        private void FixedUpdate()
+        private void Update()
         {
             _playerPosition.Value = transform.position;
         }

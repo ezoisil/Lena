@@ -10,7 +10,7 @@ namespace Camera_System
         [SerializeField] private Vector3Variable _targetPosition;
 
         //TODO: make camera follow when game session has started instead of fixedUpdate.
-        private void FixedUpdate()
+        private void Update()
         {
             transform.position = _targetPosition.Value;
         }

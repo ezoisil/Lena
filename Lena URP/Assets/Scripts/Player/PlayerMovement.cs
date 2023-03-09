@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         CalculateMovementVector();
-        if(_isMoving)
+        if (_isMoving)
             Move();
     }
 
@@ -64,11 +64,12 @@ public class PlayerMovement : MonoBehaviour
         _movementInput = dislocation;
         _rigidbody.velocity = dislocation;
     }
-    
-    
+
+
     private void OnMoveEnded()
     {
         _rigidbody.velocity = Vector3.zero;
+        _rigidbody.angularVelocity = Vector3.zero;
     }
 
 
@@ -78,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     #endregion
+
     private void CalculateMovementVector()
     {
         _cameraForward = _mainCameraTransform.forward;
@@ -93,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
             _adjustedMovement = transform.forward * (_adjustedMovement.magnitude + .01f);
             _isMoving = false;
         }
-        
+
         _targetSpeed = Mathf.Clamp01(_movementInput.magnitude);
         if (_targetSpeed > 0f)
         {
