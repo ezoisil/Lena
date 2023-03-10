@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43081e94394aa8f488f2dcd5b2e8b16e, type: 3}
-  m_Name: Player Move Speed
+  m_Name: Player Max Health
   m_EditorClassIdentifier: 
-  _value: 17
+  Value: 0

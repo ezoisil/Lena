@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="StatsHUD" src="project://database/Assets/UI%20Toolkit/Panels/StatsHUD.uxml?fileID=9197481963319205126&amp;guid=2d93291aebb57114bafe2a47da58b1a7&amp;type=3#StatsHUD" />
+    <Style src="project://database/Assets/UI%20Toolkit/Styles/MainMenuLabels.uss?fileID=7433441132597879392&amp;guid=43e778dac4a00e24db7ef78e40cac88c&amp;type=3#MainMenuLabels" />
+    <ui:Instance template="StatsHUD" name="StatsHUD" style="height: auto; flex-grow: 1;">
+        <ui:Slider picking-mode="Ignore" label="Slider" value="19.9" high-value="100" class="label-main-menu" style="align-items: center; justify-content: space-between; width: 444px; height: 77px;" />
+    </ui:Instance>
+</ui:UXML>

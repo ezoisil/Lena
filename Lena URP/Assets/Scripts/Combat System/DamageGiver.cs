@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Combat_System;
 using RegularDuck;
 using UnityEngine;
 
@@ -15,8 +16,8 @@ namespace RegularDuck
 		
 		public float Damage;
 
-		protected List<Damageable> _currentTargets = new List<Damageable>();
-		protected Dictionary<Damageable, float> _damageTimers= new Dictionary<Damageable,float>();
+		protected List<DamageReceiver> _currentTargets = new List<DamageReceiver>();
+		protected Dictionary<DamageReceiver, float> _damageTimers= new Dictionary<DamageReceiver,float>();
 
 		#region Events
 
@@ -33,39 +34,39 @@ namespace RegularDuck
 			StopAllCoroutines();
 		}
 
-		public virtual void AddNewTarget(Damageable damageable)
+		public virtual void AddNewTarget(DamageReceiver damageReceiver)
 		{
-			_currentTargets.Add(damageable);
-			_damageTimers.Add(damageable, 0);
+			_currentTargets.Add(damageReceiver);
+			_damageTimers.Add(damageReceiver, 0);
 		}
 
-		protected virtual bool TryGiveDamage(Damageable target)
+		protected virtual bool TryGiveDamage(DamageReceiver target)
 		{
 			if  (!IsOnTargetLayer(target.gameObject)) return false;
 			StartCoroutine(DamageGivingProcess(target));
 			return true;
 		}
 
-		protected virtual IEnumerator DamageGivingProcess(Damageable damageable)
+		protected virtual IEnumerator DamageGivingProcess(DamageReceiver damageReceiver)
 		{
 			OnBeforeGivingDamage?.Invoke();
 			
 			yield return new WaitForSeconds(_delay);
 			
-			GiveDamage(damageable);
+			GiveDamage(damageReceiver);
 			OnAfterGivingDamage?.Invoke();
 		}
 
-		protected virtual void GiveDamage(Damageable damageable)
+		protected virtual void GiveDamage(DamageReceiver damageReceiver)
 		{
-			damageable.TryTakeDamage(Damage);
+			damageReceiver.TryReceiveDamage(Damage);
 			OnGivingDamage?.Invoke();
 		}
 
-		protected virtual void RemoveTarget(Damageable damageable)
+		protected virtual void RemoveTarget(DamageReceiver damageReceiver)
 		{
-			_currentTargets.Remove(damageable);
-			_damageTimers.Remove(damageable);
+			_currentTargets.Remove(damageReceiver);
+			_damageTimers.Remove(damageReceiver);
 		}
 
 		#region Helpers

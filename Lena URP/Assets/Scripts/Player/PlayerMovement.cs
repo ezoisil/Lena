@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _inputReader.MoveEvent -= OnMove;
         _inputReader.DashEvent -= OnDash;
-
+        _inputReader.MoveCancelledEvent -= OnMoveEnded;
     }
 
     #region Event Listeners
@@ -108,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
         }
         _targetSpeed = Mathf.Lerp(_previousSpeed, _targetSpeed, Time.deltaTime * 4f);
 
-        MovementVector = _adjustedMovement.normalized * (_targetSpeed * _playerStats.MovementSpeed.Value);
+        MovementVector = _adjustedMovement.normalized * (_targetSpeed * _playerStats.MovementSpeed.GetValue());
 
         _previousSpeed = _targetSpeed;
     }

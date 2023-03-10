@@ -37,6 +37,10 @@ MonoBehaviour:
     m_Address: Assets/Scenes/Main Menu.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: e837baeb3261ddd4fab1aa645a44ee1a
+    m_Address: Assets/Scenes/ArenaScene.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: df5c665a82b0a5e47aada8ec5fb6bb38, type: 2}
   m_SchemaSet:

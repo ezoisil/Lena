@@ -1,21 +1,13 @@
 using UnityEngine;
-using RegularDuck;
 
-namespace RegularDuck
+namespace Combat_System
 {
-	public class Damageable : MonoBehaviour
+	public class DamageReceiver : MonoBehaviour
 	{
-		protected enum HealthUpgradeBehaviour
-		{
-			MaxOutTheHealthOnUpgrade,
-			AddTheDifference
-		}
 
-		[SerializeField] private HealthUpgradeBehaviour _healthUpgradeBehaviour;
-
-		protected float _initialHealth;
-		protected float _runtimeHealth;
-		protected bool _canTakeDamage;
+		protected float MaxHealth;
+		protected float CurrentHealth;
+		protected bool CanTakeDamage;
 
 		public DamageableState DamageableState { get; private set; }
 
@@ -23,9 +15,10 @@ namespace RegularDuck
 
 		public delegate void DamageableHandler();
 
-		public event DamageableHandler OnBeforeDamageTaken;
+		public event DamageableHandler OnHealthChanged;
+		public event DamageableHandler OnBeforeDamageReceived;
 		public event DamageableHandler OnDamageTaken;
-		public event DamageableHandler OnAfterDamageTaken;
+		public event DamageableHandler OnAfterDamageReceived;
 		public event DamageableHandler OnHealthBelowZero;
 		public event DamageableHandler OnDeath;
 
@@ -47,18 +40,18 @@ namespace RegularDuck
 		{
 		}
 
-		public virtual bool TryTakeDamage(float damage)
+		public virtual bool TryReceiveDamage(float damage)
 		{
-			if (!_canTakeDamage) return false;
-			OnBeforeDamageTaken?.Invoke();
+			if (!CanTakeDamage) return false;
+			OnBeforeDamageReceived?.Invoke();
 			ProcessDamage(damage);
-			OnAfterDamageTaken?.Invoke();
+			OnAfterDamageReceived?.Invoke();
 			return true;
 		}
 
 		public virtual void ChangeVulnerability(bool isVulnerable)
 		{
-			_canTakeDamage = isVulnerable;
+			CanTakeDamage = isVulnerable;
 		}
 
 		protected virtual void ProcessDamage(float damage)
@@ -66,7 +59,7 @@ namespace RegularDuck
 			LoseHealth(damage);
 			OnDamageTaken?.Invoke();
 
-			if (_runtimeHealth <= 0)
+			if (CurrentHealth <= 0)
 			{
 				OnHealthBelowZero?.Invoke();
 				Die();
@@ -76,12 +69,14 @@ namespace RegularDuck
 		protected virtual void Heal(float healAmount)
 		{
 			if (DamageableState == DamageableState.Dead) return;
-			_runtimeHealth = Mathf.Min(_runtimeHealth + healAmount, _initialHealth);
+			CurrentHealth = Mathf.Min(CurrentHealth + healAmount, MaxHealth);
+			OnHealthChanged?.Invoke();
 		}
 
-		private void LoseHealth(float damage)
+		protected virtual void LoseHealth(float damage)
 		{
-			_runtimeHealth -= damage;
+			CurrentHealth = Mathf.Max(CurrentHealth - damage, 0);
+			OnHealthChanged?.Invoke();
 		}
 		
 
@@ -91,7 +86,7 @@ namespace RegularDuck
 			ChangeVulnerability(true);
 			if (maxHealth)
 			{
-				Heal(_initialHealth);
+				Heal(MaxHealth);
 			}
 			else
 			{
@@ -105,13 +100,12 @@ namespace RegularDuck
 		{
 			ChangeVulnerability(false);
 			DamageableState = DamageableState.Dead;
-			_runtimeHealth = 0;
 			OnDeath?.Invoke();
 		}
 
 		protected virtual void Initialize()
 		{
-			_initialHealth = _runtimeHealth;
+			MaxHealth = CurrentHealth;
 			DamageableState = DamageableState.Alive;
 		}
 

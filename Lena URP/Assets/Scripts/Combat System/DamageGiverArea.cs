@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Combat_System;
 using UnityEngine;
 
 namespace RegularDuck
@@ -12,7 +13,7 @@ namespace RegularDuck
         private float _delta = 0;
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out Damageable damageable))
+            if (other.TryGetComponent(out DamageReceiver damageable))
             {
                 if(_currentTargets.Contains(damageable)) return;
                 AddNewTarget(damageable);
@@ -40,7 +41,7 @@ namespace RegularDuck
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.TryGetComponent(out Damageable damageable) && _currentTargets.Contains(damageable))
+            if (other.TryGetComponent(out DamageReceiver damageable) && _currentTargets.Contains(damageable))
             {
                 RemoveTarget(damageable);
             }

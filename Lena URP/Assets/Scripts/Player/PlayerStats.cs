@@ -1,3 +1,4 @@
+using Core.Scriptable_Variables;
 using Scriptable_Variables;
 using UnityEngine;
 

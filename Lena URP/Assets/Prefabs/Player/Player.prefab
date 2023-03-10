@@ -94,8 +94,9 @@ GameObject:
   - component: {fileID: 8460167107922685670}
   - component: {fileID: 8460167107922685669}
   - component: {fileID: 8460167107922685667}
-  - component: {fileID: 8460167107922685668}
   - component: {fileID: 2206892161896032235}
+  - component: {fileID: 8460167107922685668}
+  - component: {fileID: 3543555444644480388}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -148,6 +149,19 @@ MonoBehaviour:
   _playerStats: {fileID: 11400000, guid: 3f75e221fd2461b40934fb06ed858d9f, type: 2}
   _inputReader: {fileID: 11400000, guid: 2b4b6e1834953054f932d9f4aa01ed2a, type: 2}
   _rigidbody: {fileID: 8460167107922685668}
+--- !u!114 &2206892161896032235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8460167107922685671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e2f3da6c43e714999d66fa8fd321bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerPosition: {fileID: 11400000, guid: f95e23d27c3e08242975f8e2e300960f, type: 2}
 --- !u!54 &8460167107922685668
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -164,7 +178,7 @@ Rigidbody:
   m_Interpolate: 2
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &2206892161896032235
+--- !u!114 &3543555444644480388
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,7 +187,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8460167107922685671}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7e2f3da6c43e714999d66fa8fd321bc, type: 3}
+  m_Script: {fileID: 11500000, guid: b8161698f35b936409b42151242dbf49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerPosition: {fileID: 11400000, guid: f95e23d27c3e08242975f8e2e300960f, type: 2}
+  _healthUpgradeBehaviour: 1
+  _playerCurrentHealth: {fileID: 11400000, guid: d6442aa5c9cd891428fb08eb1d661eac,
+    type: 2}
+  _playerMaxHealth: {fileID: 11400000, guid: 04642d7de6cfd5b4794dbdff8aee6651, type: 2}
