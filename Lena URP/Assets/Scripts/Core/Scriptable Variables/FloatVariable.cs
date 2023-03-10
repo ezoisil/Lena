@@ -8,7 +8,8 @@ namespace Core.Scriptable_Variables
     public class FloatVariable : ScriptableObject
     {
         [SerializeField] private float _value;
-        public Action OnValueChanged;
+        public delegate void ValueChangeHandler(float changeAmount);
+        public event ValueChangeHandler OnValueChanged;
 
         public float GetValue()
         {
@@ -17,8 +18,9 @@ namespace Core.Scriptable_Variables
 
         public void ChangeValue(float value)
         {
+            float oldValue = _value;
             _value = value;
-            OnValueChanged?.Invoke();
+            OnValueChanged?.Invoke(value - oldValue);
         }
         
         
