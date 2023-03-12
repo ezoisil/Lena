@@ -60,7 +60,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnMove(Vector2 dislocation)
     {
-        Debug.Log(dislocation);
         _movementInput = dislocation;
         _rigidbody.velocity = dislocation;
     }
