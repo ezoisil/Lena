@@ -821,7 +821,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh40068
+  m_Name: pb_Mesh45928
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3541,7 +3541,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &620438412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3566,7 +3566,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 0
+  m_Antialiasing: 2
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -3875,6 +3875,7 @@ GameObject:
   - component: {fileID: 932579635}
   - component: {fileID: 932579634}
   - component: {fileID: 932579633}
+  - component: {fileID: 932579636}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -3889,14 +3890,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932579631}
-  m_LocalRotation: {x: 0.09979053, y: -0, z: -0, w: 0.9950085}
+  m_LocalRotation: {x: 0.8308848, y: 0.12219729, z: -0.5194963, w: -0.15754978}
   m_LocalPosition: {x: 0.24000168, y: 2.4540002, z: 0.3499999}
   m_LocalScale: {x: 1.1883599, y: 1.18836, z: 1.18836}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1761673636}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 11.454, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -172.25, y: -294.48102, z: -21.723999}
 --- !u!135 &932579633
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3960,6 +3961,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932579631}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &932579636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932579631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b495231e06e668a46a4a074c38707fa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _secondsPerRound: 1
 --- !u!1 &982256367
 GameObject:
   m_ObjectHideFlags: 0

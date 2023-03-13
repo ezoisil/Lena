@@ -130,7 +130,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Base_Color_1: {r: 0.11116167, g: 0.01568628, b: 0.30196077, a: 1}
-    - _Base_Color_2: {r: 0.13612494, g: 0.15022385, b: 0.21698111, a: 1}
+    - _Base_Color_2: {r: 0.18396229, g: 1, b: 0.46238628, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Fresnel_Color: {r: 1.706977, g: 1.143456, b: 3.466667, a: 1}
