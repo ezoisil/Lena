@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6826709005260744775}
   - component: {fileID: 9222235678848192318}
   m_Layer: 6
-  m_Name: Player Hurtbox
+  m_Name: Enemy Hurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 8460167107910528403}
   - component: {fileID: 8460167107910528404}
   m_Layer: 0
-  m_Name: Player Model
+  m_Name: Enemy Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,8 +121,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b8edf04cb577b4e429e27012cf26ea9e, type: 2}
-  - {fileID: 2100000, guid: 71292b8dd962d0f409c9a121c4951ec0, type: 2}
+  - {fileID: 2100000, guid: 446916189c7bf7a49b634056387f9c63, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -154,13 +153,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8460167107922685670}
   - component: {fileID: 8460167107922685669}
-  - component: {fileID: 8460167107922685667}
-  - component: {fileID: 2206892161896032235}
   - component: {fileID: 8460167107922685668}
-  - component: {fileID: 3543555444644480388}
   - component: {fileID: 8875314894555305846}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197,34 +193,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8460167107922685667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8460167107922685671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b115876c1767fa4e803d00ef2b9047b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerStats: {fileID: 11400000, guid: 3f75e221fd2461b40934fb06ed858d9f, type: 2}
-  _inputReader: {fileID: 11400000, guid: 2b4b6e1834953054f932d9f4aa01ed2a, type: 2}
-  _rigidbody: {fileID: 8460167107922685668}
---- !u!114 &2206892161896032235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8460167107922685671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7e2f3da6c43e714999d66fa8fd321bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerPosition: {fileID: 11400000, guid: f95e23d27c3e08242975f8e2e300960f, type: 2}
 --- !u!54 &8460167107922685668
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -241,21 +209,6 @@ Rigidbody:
   m_Interpolate: 2
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &3543555444644480388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8460167107922685671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8161698f35b936409b42151242dbf49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerCurrentHealth: {fileID: 11400000, guid: d6442aa5c9cd891428fb08eb1d661eac,
-    type: 2}
-  _playerMaxHealth: {fileID: 11400000, guid: 04642d7de6cfd5b4794dbdff8aee6651, type: 2}
 --- !u!95 &8875314894555305846
 Animator:
   serializedVersion: 4

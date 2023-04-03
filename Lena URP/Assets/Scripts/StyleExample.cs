@@ -139,7 +139,10 @@ namespace _Scripts.Style
         private int _maxHealth;
 
         // read-only, returns backing field
-        public int MaxHealthReadOnly => _maxHealth;
+        public int MaxHealthReadOnly
+        {
+            get { return _maxHealth; }
+        }
 
         // equivalent to:
         // public int MaxHealth { get; private set; }
@@ -147,8 +150,8 @@ namespace _Scripts.Style
         // explicitly implementing getter and setter
         public int MaxHealth
         {
-            get => _maxHealth;
-            set => _maxHealth = value;
+            get { return _maxHealth; }
+            set { _maxHealth = value; }
         }
 
         // write-only (not using backing field)

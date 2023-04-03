@@ -10,54 +10,62 @@ namespace Combat_System
 
         [SerializeField] private float _thickness = 0.025f;
         private IHitResponder _hitResponder;
+
         public IHitResponder HitResponder
         {
-            get { return _hitResponder; }
-            set { _hitResponder = value; }
+            get => _hitResponder;
+            set => _hitResponder = value;
         }
 
+        private float distance;
+        private Vector3 direction;
+        private Vector3 center;
+        private Vector3 startPoint;
+        private Vector3 halfExtents;
+        private Quaternion orientation;
+        private RaycastHit[] results;
+        private int size;
         public void CheckHit()
         {
+            var size1 = _collider.size;
             Vector3 scaledSize = new Vector3(
-            _collider.size.x * transform.lossyScale.x,
-            _collider.size.y * transform.lossyScale.y,
-            _collider.size.z * transform.lossyScale.z
+            size1.x * transform.lossyScale.x,
+            size1.y * transform.lossyScale.y,
+            size1.z * transform.lossyScale.z
             );
 
-            float distance = scaledSize.y - _thickness;
-            Vector3 direction = transform.up;
-            Vector3 center = transform.TransformPoint(_collider.center);
-            Vector3 startPoint = center - direction * (distance / 2);
-            Vector3 halfExtents = new Vector3(scaledSize.x, _thickness, scaledSize.z) / 2;
-            Quaternion orientation = transform.rotation;
+            distance = scaledSize.y - _thickness;
+            direction = transform.up;
+            center = transform.TransformPoint(_collider.center);
+            startPoint = center - direction * (distance / 2);
+            halfExtents = new Vector3(scaledSize.x, _thickness, scaledSize.z) / 2;
+            orientation = transform.rotation;
 
-            HitData hitdata = null;
-            IHurtBox hurtBox = null;
-            RaycastHit[] results = new RaycastHit[10];
-            var size = Physics.BoxCastNonAlloc(startPoint, halfExtents, direction, results, orientation, distance, _layerMask);
+            results = new RaycastHit[10];
+            size = Physics.BoxCastNonAlloc(startPoint, halfExtents, direction, results, orientation, distance, _layerMask);
 
             for (int i = 0; i < size; i++)
             {
-                if (TryGetComponent(out hurtBox))
+                if (TryGetComponent(out IHurtBox hurtBox))
                 {
-                    if(!hurtBox.Active) return;
+                    if (!hurtBox.IsActive) return;
 
                     RaycastHit hit = results[i];
 
-                    hitdata = new HitData
+                    var hitData = new HitData
                     {
-                        Damage =  _hitResponder?.Damage ?? 0,
+                        Damage = _hitResponder?.Damage ?? 0,
                         HitPoint = hit.point == Vector3.zero ? center : hit.point,
                         HitNormal = hit.normal,
                         HurtBox = hurtBox,
                         HitDetector = this
                     };
-                    
-                    if(!hitdata.Validate()) return;
-                    
-                    hitdata.HitDetector.HitResponder?.Response(hitdata);
-                    hitdata.HurtBox.HurtResponder?.Response(hitdata);
-                    
+
+                    if (!hitData.Validate()) return;
+
+                    hitData.HitDetector.HitResponder?.Response(hitData);
+                    hitData.HurtBox.HurtResponder?.Response(hitData);
+
                 }
             }
         }
