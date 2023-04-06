@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Combat_System
 {
 
-    public class DefaultHitResponder : MonoBehaviour, IHitResponder
+    public class HitResponder : MonoBehaviour, IHitResponder
     {
         [SerializeField] private int _damage = 1;
         [SerializeField] private HitBox _hitBox;
