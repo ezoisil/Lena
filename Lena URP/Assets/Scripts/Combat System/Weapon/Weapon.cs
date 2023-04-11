@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Combat_System.Weapon
 {
 
-    public class Weapon : IHoldable
+    public class Weapon : IEquipment
     {
         protected Transform HoldTransform;
 

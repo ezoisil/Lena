@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Holding
 {
 
-    public interface IHoldable
+    public interface IEquipment
     {
         public Transform HandleTransform { get; }
     }
