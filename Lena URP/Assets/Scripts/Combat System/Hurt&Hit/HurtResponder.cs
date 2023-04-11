@@ -1,9 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Combat_System
+namespace Combat_System.Hurt_Hit
 {
 
     public class HurtResponder : MonoBehaviour, IHurtResponder, ITargetable
@@ -28,12 +27,12 @@ namespace Combat_System
 
         public bool CheckHit(HitData data)
         {
-            throw new System.NotImplementedException();
+            return true;
         }
 
         public void Response(HitData data)
         {
-            throw new System.NotImplementedException();
+            Debug.Log("Hit response");
         }
 
 

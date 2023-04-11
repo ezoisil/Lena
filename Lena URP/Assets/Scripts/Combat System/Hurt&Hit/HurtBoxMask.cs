@@ -1,7 +1,6 @@
 using System;
-using UnityEngine;
 
-namespace Combat_System
+namespace Combat_System.Hurt_Hit
 {
 
     [Flags] public enum HurtBoxMask
