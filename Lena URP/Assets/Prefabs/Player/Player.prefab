@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4016754546591241320}
   - component: {fileID: 6826709005260744775}
-  - component: {fileID: 9222235678848192318}
+  - component: {fileID: 2039592793625496380}
   m_Layer: 6
   m_Name: Player Hurtbox
   m_TagString: Untagged
@@ -47,8 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isActive: 1
   _owner: {fileID: 8460167107922685671}
---- !u!65 &9222235678848192318
-BoxCollider:
+  _type: 1
+--- !u!136 &2039592793625496380
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -57,8 +58,9 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.73, y: 1.4, z: 0.65}
+  m_Radius: 0.5
+  m_Height: 1.98
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8460167107910528406
 GameObject:
