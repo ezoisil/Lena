@@ -46,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
         _inputReader.MoveEvent += OnMove;
         _inputReader.MoveCancelledEvent += OnMoveEnded;
         _inputReader.DashEvent += OnDash;
-        _inputReader.EnableGameInput();
     }
 
     private void OnDisable()

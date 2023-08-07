@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Holding
 {
 
-    public class Equipment : IEquipment
+    public class Equipment : MonoBehaviour
     {
-        public Transform HandleTransform { get => throw new System.NotImplementedException(); }
+        public List<Transform> HandleTransforms;
     }
 
 }

@@ -13,6 +13,7 @@ namespace Core.EventChannels
         public UnityAction MoveCancelledEvent = delegate { };
         public UnityAction DashEvent = delegate { };
         public UnityAction SprintEvent = delegate { };
+        public UnityAction PrimaryAttackEvent = delegate { };
 
         private GameInputActions _gameInputActions;
 
@@ -74,6 +75,12 @@ namespace Core.EventChannels
         {
             if (context.phase == InputActionPhase.Performed)
                 SprintEvent?.Invoke();
+        }
+
+        public void OnPrimaryAttack(InputAction.CallbackContext context)
+        {
+            if (context.phase == InputActionPhase.Performed)
+                PrimaryAttackEvent?.Invoke();
         }
 
         public void OnNavigate(InputAction.CallbackContext context)
